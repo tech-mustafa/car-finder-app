@@ -1,17 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { ApolloProvider, ApolloClient } from "@apollo/client";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import { HttpLink } from "apollo-link-http";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import App from "./components";
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+// import 'react-select/dist/react-select.css'
+import "react-virtualized/styles.css";
+import "react-virtualized-select/styles.css";
+import { graphQLUri } from "./utilities/Constants";
+import Header from "./components/header";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const cache = new InMemoryCache();
+const client = new ApolloClient({
+  cache,
+  link: new HttpLink({ uri: graphQLUri }),
+  dataIdFromObject: (o) => o.id,
+});
+
+const Root = () => {
+  return (
+    <div>
+      <ApolloProvider client={client}>
+        <Header />
+        <App />
+      </ApolloProvider>
+    </div>
+  );
+};
+
+ReactDOM.render(<Root />, document.getElementById("root"));
