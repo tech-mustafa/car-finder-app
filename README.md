@@ -24,3 +24,4 @@ A demo App where you can select Automobile Brands and Models to find the Relevan
 
 ## Link to the deployes Application
 1. GraphQL server:- https://car-product-catalogue.herokuapp.com/graphql
+2. Link to deployed app:- https://car-finder-app.netlify.app/
