@@ -7,7 +7,6 @@ import { HttpLink } from "apollo-link-http";
 import App from "./components";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import 'react-select/dist/react-select.css'
 import "react-virtualized/styles.css";
 import "react-virtualized-select/styles.css";
 import { graphQLUri } from "./utilities/Constants";

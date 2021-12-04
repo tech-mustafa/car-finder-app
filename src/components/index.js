@@ -3,7 +3,6 @@ import { useQuery, useLazyQuery } from "@apollo/react-hooks";
 import SearchBar from "./partials/SearchBar";
 import "../styles/App.css";
 import CarsList from "./partials/CarsList";
-// import NoResults from "./NoResults";
 
 import getAllMakes from "../graphql-queries/GetAllMakes";
 import getCarImages from "../graphql-queries/GetCarImages";
@@ -27,10 +26,8 @@ const App = () => {
   useEffect(() => {
     if (carsList && carsList.getCarImages && carsList.getCarImages.length) {
       setInitialImage(carsList.getCarImages[0].imageUrl);
-      // setNoResult(false);
     } else {
       setInitialImage("");
-      // setNoResult(isDataFetched ? true : false);
     }
   }, [carsList]);
 
@@ -50,8 +47,6 @@ const App = () => {
           />
         )}
       </div>
-      {/* 
-      {noResult && isDataFetched && <NoResults />} */}
     </div>
   );
 };
