@@ -101,6 +101,7 @@ const SearchBar = (props) => {
         label="Car Brands"
         options={allCarMakes}
         onSelect={handleBrandSelect}
+        disabled={props.carMakeLoading}
       />
       <Dropdown
         label="Brand Models"
